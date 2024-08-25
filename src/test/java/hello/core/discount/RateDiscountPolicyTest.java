@@ -3,6 +3,7 @@ package hello.core.discount;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +11,15 @@ import static org.assertj.core.api.Assertions.*;
 
 public class RateDiscountPolicyTest {
 
-    DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    private DiscountPolicy discountPolicy;
+
+    @BeforeEach
+    void setUp() {
+        discountPolicy = new RateDiscountPolicy();
+    }
 
     @Test
-    @DisplayName("VIP는 10%할인이 적용돠어야 한다.")
+    @DisplayName("VIP는 10%할인이 적용되어야 한다.")
     void vip_o() {
         // given
         Member memberA = new Member(1L, "memberA", Grade.VIP);
